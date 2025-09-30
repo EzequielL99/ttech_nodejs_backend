@@ -1,4 +1,9 @@
-import { getAllProductsController, getProductByIdController } from "./controllers/products.controller.js";
+import {
+  addProductController,
+  deleteProductController,
+  getAllProductsController,
+  getProductByIdController,
+} from "./controllers/products.controller.js";
 
 const params = process.argv.slice(2);
 
@@ -16,30 +21,51 @@ const makeRequest = async (request) => {
 
   switch (method.toUpperCase()) {
     case "GET":
-        // Todos los productos | Producto por ID
+      // Todos los productos
       if (path && path === "products") {
-        const response = await getAllProductsController();
+        const products = await getAllProductsController();
 
-        if (response.error) {
-          console.log(response.message);
-        } else {
-          console.log(response.data);
-        }
-      } else if (path && path.includes("products/")) {
-        const id = path.substring(path.indexOf("/") + 1);
+        if (products.error) return console.log(products.message);
 
-        const response = await getProductByIdController(id);
-        console.log(response);
-      } else {
-        console.log("Parametros insuficientes o invalidos");
+        return console.log(products.data);
       }
 
+      // Producto por ID
+      if (path && path.includes("products/")) {
+        const id = path.substring(path.indexOf("/") + 1);
+
+        const product = await getProductByIdController(id);
+
+        if (product.error) return console.log(error.message);
+
+        return console.log(product);
+      }
+
+      return console.log("Parametros insuficientes o invalidos");
       break;
     case "POST":
-      console.log("Peticion POST");
+      if (body) {
+        const response = await addProductController(body);
+
+        if (response.error) return console.log(response.message);
+
+        return console.log(response);
+      }
+
+      return console.log("Parametros insuficientes o invalidos");
       break;
     case "DELETE":
-      console.log("Peticion DELETE");
+      if (path && path.includes("products/")) {
+        const id = path.substring(path.indexOf("/") + 1);
+
+        const response = await deleteProductController(id);
+
+        if (response.error) return console.log(response.message);
+
+        return console.log(response);
+      }
+
+      return console.log("Parametros insuficientes o invalidos");
       break;
     default:
       console.log("Tipo de petición HTTP no soportado.");

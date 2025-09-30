@@ -1,24 +1,50 @@
-import { getAllProductsAction } from "../services/products.service.js";
+import {
+  addProductAction,
+  deleteProductAction,
+  getAllProductsAction,
+  getProductByIdAction,
+} from "../services/products.service.js";
 
-export const getAllProductsController = async () => {
-  const products = await getAllProductsAction();
+const handleError = (message) => ({
+  error: true,
+  message,
+});
 
-  return products;
+export const getAllProductsController = async () => await getAllProductsAction();
+
+export const getProductByIdController = async (id = "") => {
+  // Validacion
+  if (isNaN(id)) return handleError("El id debe ser un valor numerico");
+
+  if (id < 1) return handleError("El id debe ser un valor entero positivo");
+
+  return await getProductByIdAction(id);
 };
 
-export const getProductByIdController = async (id = '') => {
+export const addProductController = async (body) => {
+  if (body) {
     // Validacion
-    if(isNaN(id)) return {
-        error: true,
-        message: 'El id debe ser un valor numerico'
-    }
+    const [title, price, category] = body;
 
-    if(id < 1) return {
-        error: true,
-        message: 'El id debe ser un valor entero positivo'
-    }
+    if (!title || !price || !category)
+      return handleError("Datos del producto insuficiente");
 
+    if (isNaN(price))
+      return handleError("El precio debe ser un valor numerico");
 
+    return await addProductAction({
+      title,
+      price,
+      category,
+    });
+  }
+};
 
+export const deleteProductController = async (id = "") => {
+  // Validacion
+  if (isNaN(id)) return handleError("El id debe ser un valor numerico");
 
-}
+  if (id < 1) return handleError("El id debe ser un valor entero positivo");
+
+  return await deleteProductAction(id);
+};
