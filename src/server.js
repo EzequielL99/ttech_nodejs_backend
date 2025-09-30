@@ -27,7 +27,7 @@ const makeRequest = async (request) => {
 
         if (products.error) return console.log(products.message);
 
-        return console.log(products.data);
+        return console.log(products);
       }
 
       // Producto por ID
@@ -36,7 +36,7 @@ const makeRequest = async (request) => {
 
         const product = await getProductByIdController(id);
 
-        if (product.error) return console.log(error.message);
+        if (product.error) return console.log(product.message);
 
         return console.log(product);
       }

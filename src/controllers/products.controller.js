@@ -34,7 +34,7 @@ export const addProductController = async (body) => {
 
     return await addProductAction({
       title,
-      price,
+      price: Number(price),
       category,
     });
   }
