@@ -1,0 +1,53 @@
+# ───── Node basics ─────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+.pnpmfile.cjs
+
+# ───── Environment variables ─────
+.env
+.env.*.local
+.env.local
+
+# ───── Logs ─────
+logs/
+*.log
+*.log.*
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ───── Build output ─────
+dist/
+build/
+
+# ───── Coverage ─────
+coverage/
+.nyc_output/
+
+# ───── Editor & OS files ─────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# ───── Temp & cache ─────
+.tmp/
+temp/
+.cache/
+.eslintcache
+
+# ───── Deployment ─────
+.vercel/
+.netlify/
+
+# ───── Testing tools ─────
+jest-cache/
+jest-html-reporters-*
+playwright-report/
+test-results/

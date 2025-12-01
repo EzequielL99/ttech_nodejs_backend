@@ -1,0 +1,47 @@
+[
+  {
+    "id": "P001",
+    "name": "Teclado mecánico RGB Corsair K70 RGB MK.2",
+    "price": 159.99
+  },
+  {
+    "id": "P003",
+    "name": "Monitor 27\" ASUS ROG Swift 360Hz 1440p",
+    "price": 699
+  },
+  {
+    "id": "P004",
+    "name": "Procesador AMD Ryzen 9 7950X3D",
+    "price": 679.99
+  },
+  {
+    "id": "P005",
+    "name": "Tarjeta gráfica NVIDIA RTX 4080 16GB",
+    "price": 1249
+  },
+  {
+    "id": "P006",
+    "name": "SSD NVMe 2TB Samsung 990 PRO",
+    "price": 189.99
+  },
+  {
+    "id": "P007",
+    "name": "Memoria RAM 32GB (2x16GB) DDR5 6000MHz Corsair Vengeance RGB",
+    "price": 149.9
+  },
+  {
+    "id": "P008",
+    "name": "Fuente de alimentación 1000W 80+ Platinum Corsair HX1000i",
+    "price": 249.99
+  },
+  {
+    "id": "P009",
+    "name": "Auriculares gaming SteelSeries Arctis Nova Pro Wireless",
+    "price": 329
+  },
+  {
+    "id": "P010",
+    "name": "Caja ATX Lian Li PC-O11 Dynamic White",
+    "price": 139.9
+  }
+]
