@@ -83,14 +83,22 @@ Método Ruta Descripción
 
 ---
 
-- POST `/auth/login` Inicia sesión. Obtendrás como respuesta un Token generado por la librería JWT
+- POST `/auth/login` Inicia sesión.
 
 #### Cuerpo de la petición POST
 
 ```json
 {
   "email": "admin@admin.com",
-  "password": "admin",
+  "password": "admin"
+}
+```
+
+Respuesta: Token JWT
+
+```json
+{
+    "token": "TokenJWT"
 }
 ```
 
@@ -119,6 +127,8 @@ Cuerpo de la petición POST
   "stock": 10,
 }
 ```
+
+Respuesta: Si la petición se realiza correctamente, retorna el ID del producto generado en Firestore
 
 ---
 

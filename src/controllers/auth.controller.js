@@ -14,6 +14,10 @@ export default class AuthController {
       if (response.status === "error") {
         return res.status(401).json({
           error: response.detail,
+          credentials: {
+            email: "admin@admin.com",
+            password: "admin",
+          },
         });
       }
 
