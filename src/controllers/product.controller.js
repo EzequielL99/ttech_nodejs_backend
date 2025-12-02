@@ -17,14 +17,13 @@ export class ProductController {
 
   static createProduct = async (req, res) => {
     try {
-      const { category, description, name, price, slugId, stock } = req.body;
+      const { category, description, name, price, stock } = req.body;
 
       const newProduct = await ProductService.createProduct({
         category,
         description,
         name,
         price,
-        slugId,
         stock,
       });
 

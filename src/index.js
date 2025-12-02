@@ -1,9 +1,9 @@
 import express from "express";
 import cors from "cors";
+import 'dotenv/config';
 import productRoutes from "./routes/products.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 
-const PORT = 3001;
 const app = express();
 
 // Requerimiento #3: CORS
@@ -21,4 +21,4 @@ app.use((req, res) => {
   res.status(404).send("Pagina o recurso no encontrado");
 });
 
-app.listen(PORT, () => console.log(`Servidor ejecutando en el puerto ${PORT}`));
+app.listen(process.env.PORT, () => console.log(`Servidor ejecutando en el puerto ${process.env.PORT}`));

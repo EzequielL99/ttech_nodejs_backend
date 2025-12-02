@@ -34,7 +34,6 @@ router.post(
     .withMessage("El precio del producto es obligatorio")
     .custom((value) => value > 0)
     .withMessage("El precio debe ser un valor positivo"),
-  body("slugId").notEmpty().withMessage("El slug ID es obligatorio"),
   body("stock")
     .isNumeric()
     .withMessage("El stock del producto debe ser numerico")
